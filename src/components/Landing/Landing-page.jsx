@@ -35,8 +35,9 @@ function LandingPage() {
       <ServicesHomeOne/>
       <CtaArea />
       <PricingSection />
-      <News />
       <Map />
+      <News />
+     
       <Faqs />
       <Contact />
       {/* <Chatbot/> */}

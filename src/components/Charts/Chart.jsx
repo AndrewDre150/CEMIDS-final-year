@@ -37,49 +37,53 @@ const Charts = () => {
           content="React wrapper component for Chart.js 3.0, the most popular charting library."
         /> */}
       </CCol>
+
       <CCol xs={6}>
         <CCard className="mb-4">
-          <CCardHeader>Bar Chart</CCardHeader>
+          <CCardHeader>Bar Chart showing Daily C02 level Averages</CCardHeader>
           <CCardBody>
             <CChartBar
               data={{
                 labels: ['Monday', 'Tuesday', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
                 datasets: [
                   {
-                    label: 'Daily Average levels',
+                    label: 'Daily Average levels (ppm)',
                     backgroundColor: '#f87979',
                     data: [900, 1200, 1100, 800, 700, 400, 500],
                   },
                 ],
               }}
-              labels="months"
+              labels="days"
             />
           </CCardBody>
         </CCard>
       </CCol>
+
       <CCol xs={6}>
         <CCard className="mb-4">
-          <CCardHeader>Line Chart</CCardHeader>
+          <CCardHeader>Line Chart for CO2 daily levels</CCardHeader>
           <CCardBody>
             <CChartLine
               data={{
                 labels: ['Monday', 'Tuesday', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
                 datasets: [
                   {
-                    label: 'My First dataset',
+                    label: 'Week one (ppm)',
                     backgroundColor: 'rgba(220, 220, 220, 0.2)',
                     borderColor: 'rgba(220, 220, 220, 1)',
                     pointBackgroundColor: 'rgba(220, 220, 220, 1)',
                     pointBorderColor: '#fff',
-                    data: [random(), random(), random(), random(), random(), random(), random()],
+                    // data: [random(), random(), random(), random(), random(), random(), random()],
+                    data: [900, 1200, 1100, 800, 700, 400, 500],
                   },
                   {
-                    label: 'My Second dataset',
+                    label: 'Week Two (ppm)',
                     backgroundColor: 'rgba(151, 187, 205, 0.2)',
                     borderColor: 'rgba(151, 187, 205, 1)',
                     pointBackgroundColor: 'rgba(151, 187, 205, 1)',
                     pointBorderColor: '#fff',
-                    data: [random(), random(), random(), random(), random(), random(), random()],
+                    // data: [random(), random(), random(), random(), random(), random(), random()],
+                    data: [500, 800, 1200, 900, 600, 900, 400],
                   },
                 ],
               }}
@@ -87,43 +91,75 @@ const Charts = () => {
           </CCardBody>
         </CCard>
       </CCol>
+
       <CCol xs={6}>
-        <CCard className="mb-4">
-          <CCardHeader>Doughnut Chart</CCardHeader>
-          <CCardBody>
-            <CChartDoughnut
-              data={{
-                labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
-                datasets: [
-                  {
-                    backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-                    data: [40, 20, 80, 10],
+      <CCard className="mb-4">
+        <CCardHeader>Distribution of CO2 Sources</CCardHeader>
+        <CCardBody>
+          <CChartDoughnut
+            data={{
+              labels: [
+                'Agriculture',
+                'Electric Power',
+                'Industry',
+                'Transportation',
+                'Residential and Commercial',
+              ],
+              datasets: [
+                {
+                  backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16', '#FFCE56'],
+                  data: [10, 25, 23, 29, 13],
+                },
+              ],
+            }}
+            options={{
+              plugins: {
+                tooltip: {
+                  callbacks: {
+                    label: (context) => {
+                      const value = context.parsed || 0;
+                      return `${value}%`;
+                    },
                   },
-                ],
-              }}
-            />
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs={6}>
-        <CCard className="mb-4">
-          <CCardHeader>Pie Chart</CCardHeader>
-          <CCardBody>
-            <CChartPie
-              data={{
-                labels: ['Normal levels', 'Elevated levels', 'High levels'],
-                datasets: [
-                  {
-                    data: [300, 50, 100],
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-                    hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                },
+              },
+            }}
+          />
+        </CCardBody>
+      </CCard>
+    </CCol>
+    
+    <CCol xs={6}>
+      <CCard className="mb-4">
+        <CCardHeader>Pie Chart showing percentage of levels</CCardHeader>
+        <CCardBody>
+          <CChartPie
+            data={{
+              labels: ['Normal levels', 'Elevated levels', 'High levels'],
+              datasets: [
+                {
+                  data: [60, 15, 25],
+                  backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                  hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                },
+              ],
+            }}
+            options={{
+              plugins: {
+                tooltip: {
+                  callbacks: {
+                    label: (context) => {
+                      const value = context.parsed || 0;
+                      return `${value}%`;
+                    },
                   },
-                ],
-              }}
-            />
-          </CCardBody>
-        </CCard>
-      </CCol>
+                },
+              },
+            }}
+          />
+        </CCardBody>
+      </CCard>
+    </CCol>
     </CRow>
     </div>
   )

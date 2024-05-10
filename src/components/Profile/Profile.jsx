@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { MdOutlineMenu } from "react-icons/md";
+import { SidebarContext } from "../../context/SidebarContext";
 
 const ProfilePage = () => {
+  const { openSidebar } = useContext(SidebarContext);
   const [profileImage, setProfileImage] = useState(null);
 
   const handleImageChange = (e) => {
@@ -9,6 +12,17 @@ const ProfilePage = () => {
   };
 
   return (
+    <div>
+      <div className="chatbot-l">
+                <button
+                    className="chatbot-menu-btn"
+                    type="button"
+                    onClick={openSidebar}
+                >
+                    <MdOutlineMenu size={24} />
+                </button>
+                <h2 className="chatbot-title">Profile</h2>
+            </div>
     <div className="container rounded bg-white mt-5 mb-5">
       <div className="row mt-8">
         <div className="col-4 border-end">
@@ -63,22 +77,22 @@ const ProfilePage = () => {
             </div>
             <div className="row mb-5">
               <div className="col-6 pe-2">
-                <label className="form-label">College</label>
-                <input type="text" className="form-control" placeholder="College" value="" />
+                <label className="form-label">Nationality</label>
+                <input type="text" className="form-control" placeholder="" value="" />
               </div>
               <div className="col-6 ps-2">
-                <label className="form-label">Course</label>
-                <input type="text" className="form-control" placeholder="Course" value="" />
+                <label className="form-label">Date of Birth</label>
+                <input type="date" className="form-control" placeholder="Course" value="" />
               </div>
             </div>
             <div className="row">
               <div className="col-6 pe-2">
-                <label className="form-label">Student Number</label>
-                <input type="text" className="form-control" placeholder="First name" value="" />
+                <label className="form-label">Job Title</label>
+                <input type="text" className="form-control" placeholder="Manager" value="" />
               </div>
               <div className="col-6 ps-2">
-                <label className="form-label">Registration Number</label>
-                <input type="text" className="form-control" placeholder="Surname" value="" />
+                <label className="form-label">Email</label>
+                <input type="email" className="form-control" placeholder="email" value="" />
               </div>
             </div>
             <div className="mt-5 text-center">
@@ -87,6 +101,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
