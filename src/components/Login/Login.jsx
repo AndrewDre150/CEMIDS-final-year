@@ -96,7 +96,18 @@ function Login() {
             <MDBCard>
                 <MDBRow className='g-0'>
                     <MDBCol md='6'>
-                        <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form" className='rounded-start w-100' />
+                        {/* <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form"  className='rounded-start w-100' /> */}
+                        <MDBCardImage
+                          src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp'
+                          alt="login form"
+                          className='rounded-start w-100'
+                          style={{
+                            height: 'auto',
+                            maxHeight: '550px', // Set a maximum height to maintain responsiveness
+                            width: '100%', // Ensure the image takes up the full width
+                            objectFit: 'cover', // Maintain aspect ratio and fill the container
+                          }}
+                        />
                     </MDBCol>
                     <MDBCol md='6'>
                         <MDBCardBody className='d-flex flex-column'>

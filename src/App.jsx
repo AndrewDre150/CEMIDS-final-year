@@ -220,6 +220,9 @@ import Map from './components/Landing/Components/Map'
 import EventsMap from "./components/Map/EventsMap";
 import Analytics from "./components/Charts/Analytics";
 import { ProtectedRoute } from "./ProtectedRoute";
+import ProfilePage from "./components/Profile/Profile";
+import DescriptionAlerts from "./components/Alerts/Alert";
+import CO2Monitor from "./components/Alerts/CO2Monitor";
 
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -308,6 +311,15 @@ function App() {
             </ProtectedRoute>} />
             <Route path="/chatbot" element={<ProtectedRoute user={user}>
               <Chatbot/>
+            </ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute user={user}>
+              <ProfilePage/>
+            </ProtectedRoute>} />
+            <Route path="/alerts" element={<ProtectedRoute user={user}>
+              <DescriptionAlerts/>
+            </ProtectedRoute>} />
+            <Route path="/alert" element={<ProtectedRoute user={user}>
+              <CO2Monitor/>
             </ProtectedRoute>} />
           </Route>
         </Routes>

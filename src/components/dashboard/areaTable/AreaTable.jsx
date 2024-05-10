@@ -1,70 +1,72 @@
 import AreaTableAction from "./AreaTableAction";
 import "./AreaTable.scss";
+import { FaArrowUpLong } from "react-icons/fa6";
+import { FaArrowDownLong } from "react-icons/fa6";
 
 const TABLE_HEADS = [
-  "Products",
-  "Order ID",
   "Date",
-  "Customer name",
-  "Status",
-  "Amount",
+  "Timestamp",
+  "CO2 levels (ppm)",
+  "Threshold Range",
+  "Trend",
+  // "Amount",
   "Action",
 ];
 
 const TABLE_DATA = [
   {
     id: 100,
-    name: "Iphone 13 Pro",
-    order_id: 11232,
     date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "delivered",
-    amount: 400,
+    timestamp: "12:44:00",
+    CO2_level: 1200,
+    range: "UnSafe",
+    trend: "Increasing",
+    amount: 500,
   },
   {
     id: 101,
-    name: "Macbook Pro",
-    order_id: 11232,
     date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "pending",
-    amount: 288,
+    timestamp: "12:45:00",
+    CO2_level: 600,
+    range: "Safe",
+    trend: "Balancing",
+    amount: 500,
   },
   {
     id: 102,
-    name: "Apple Watch",
-    order_id: 11232,
     date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "canceled",
+    timestamp: "12:48:00",
+    CO2_level: 800,
+    range: "Safe",
+    trend: "Increasing",
     amount: 500,
   },
   {
     id: 103,
-    name: "Microsoft Book",
-    order_id: 11232,
     date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "delivered",
-    amount: 100,
+    timestamp: "12:50:00",
+    CO2_level: 700,
+    range: "Safe",
+    trend: "Increasing",
+    amount: 500,
   },
   {
     id: 104,
-    name: "Apple Pen",
-    order_id: 11232,
     date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "delivered",
-    amount: 60,
+    timestamp: "12:52:00",
+    CO2_level: 1200,
+    range: "UnSafe",
+    trend: "Decreasing",
+    amount: 500,
   },
   {
     id: 105,
-    name: "Airpods",
-    order_id: 11232,
     date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "delivered",
-    amount: 80,
+    timestamp: "12:55:00",
+    CO2_level: 900,
+    range: "Safe",
+    trend: "Increasing",
+    amount: 500,
   },
 ];
 
@@ -72,7 +74,7 @@ const AreaTable = () => {
   return (
     <section className="content-area-table">
       <div className="data-table-info">
-        <h4 className="data-table-title">Latest Orders</h4>
+        <h4 className="data-table-title">Latest Values</h4>
       </div>
       <div className="data-table-diagram">
         <table>
@@ -87,19 +89,19 @@ const AreaTable = () => {
             {TABLE_DATA?.map((dataItem) => {
               return (
                 <tr key={dataItem.id}>
-                  <td>{dataItem.name}</td>
-                  <td>{dataItem.order_id}</td>
                   <td>{dataItem.date}</td>
-                  <td>{dataItem.customer}</td>
+                  <td>{dataItem.timestamp}</td>
+                  <td>{dataItem.CO2_level}</td>
+                  <td>{dataItem.range}</td>
                   <td>
                     <div className="dt-status">
                       <span
-                        className={`dt-status-dot dot-${dataItem.status}`}
+                        className={`dt-status-dot dot-${dataItem.trend}`}
                       ></span>
-                      <span className="dt-status-text">{dataItem.status}</span>
+                      <span className="dt-status-text">{dataItem.trend}</span>
                     </div>
                   </td>
-                  <td>${dataItem.amount.toFixed(2)}</td>
+                  {/* <td>${dataItem.amount.toFixed(2)}</td> */}
                   <td className="dt-cell-action">
                     <AreaTableAction />
                   </td>

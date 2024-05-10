@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./Calender.css";
+import { MdOutlineMenu } from "react-icons/md";
+import { SidebarContext } from "../../context/SidebarContext";
+
 
 const CalendarComponent = () => {
+    const { openSidebar } = useContext(SidebarContext);
+
     const [selectedDate, setSelectedDate] = useState(null);
     const [eventName, setEventName] = useState("");
     const [events, setEvents] = useState([]);
@@ -48,6 +53,16 @@ const CalendarComponent = () => {
 
     return (
         <div className="app">
+            <div className="chatbot-l">
+                <button
+                    className="chatbot-menu-btn"
+                    type="button"
+                    onClick={openSidebar}
+                >
+                    <MdOutlineMenu size={24} />
+                </button>
+                <h2 className="chatbot-title">Calender</h2>
+            </div>
             <div className="container">
                 <div className="calendar-container">
                     <Calendar
@@ -70,7 +85,7 @@ const CalendarComponent = () => {
                 <div className="event-container">
                     {selectedDate && (
                         <div className="event-form">
-                            <h2>Create Event</h2>
+                            <h2>Add Event Reminder</h2>
                             <p>Selected Date: {selectedDate.toDateString()}</p>
                             <input
                                 type="text"

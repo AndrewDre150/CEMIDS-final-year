@@ -134,7 +134,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/notification" className="menu-link">
+              <Link to="/alert" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlineMessage size={18} />
                 </span>
@@ -147,11 +147,11 @@ const Sidebar = () => {
         <div className="sidebar-menu sidebar-menu2">
           <ul className="menu-list">
             <li className="menu-item">
-              <Link to="/settings" className="menu-link">
+              <Link to="/profile" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlineSettings size={20} />
                 </span>
-                <span className="menu-link-text">Settings</span>
+                <span className="menu-link-text">Profile</span>
               </Link>
             </li>
             <li className="menu-item">

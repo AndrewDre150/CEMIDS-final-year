@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext }from 'react'
 import { CCard, CCardBody, CCol, CCardHeader, CRow } from '@coreui/react'
 import {
   CChartBar,
@@ -8,12 +8,27 @@ import {
   CChartPolarArea,
   CChartRadar,
 } from '@coreui/react-chartjs'
+import { MdOutlineMenu } from "react-icons/md";
+import { SidebarContext } from "../../context/SidebarContext";
 // import { DocsCallout } from 'src/components'
 
 const Charts = () => {
+  const { openSidebar } = useContext(SidebarContext);
+  
   const random = () => Math.round(Math.random() * 100)
 
   return (
+    <div>
+      <div className="chatbot-l">
+                <button
+                    className="chatbot-menu-btn"
+                    type="button"
+                    onClick={openSidebar}
+                >
+                    <MdOutlineMenu size={24} />
+                </button>
+                <h2 className="chatbot-title">Analytics</h2>
+            </div>
     <CRow>
       <CCol xs={12}>
         {/* <DocsCallout
@@ -28,12 +43,12 @@ const Charts = () => {
           <CCardBody>
             <CChartBar
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['Monday', 'Tuesday', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
                 datasets: [
                   {
-                    label: 'GitHub Commits',
+                    label: 'Daily Average levels',
                     backgroundColor: '#f87979',
-                    data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
+                    data: [900, 1200, 1100, 800, 700, 400, 500],
                   },
                 ],
               }}
@@ -48,7 +63,7 @@ const Charts = () => {
           <CCardBody>
             <CChartLine
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['Monday', 'Tuesday', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
                 datasets: [
                   {
                     label: 'My First dataset',
@@ -96,7 +111,7 @@ const Charts = () => {
           <CCardBody>
             <CChartPie
               data={{
-                labels: ['Red', 'Green', 'Yellow'],
+                labels: ['Normal levels', 'Elevated levels', 'High levels'],
                 datasets: [
                   {
                     data: [300, 50, 100],
@@ -110,6 +125,7 @@ const Charts = () => {
         </CCard>
       </CCol>
     </CRow>
+    </div>
   )
 }
 

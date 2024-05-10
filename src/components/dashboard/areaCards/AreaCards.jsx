@@ -26,9 +26,9 @@ const AreaCards = () => {
         colors={["#e4e8ef", "#f29a2e"]}
         percentFillValue={40}
         cardInfo={{
-          title: "In Escrow",
-          value: "$18.2K",
-          text: "Available to payout",
+          title: "Yesterday's Average",
+          value: "700ppm",
+          text: "Safe range",
         }}
       />
     </section>
