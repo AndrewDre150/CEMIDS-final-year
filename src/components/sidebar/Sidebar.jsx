@@ -125,7 +125,15 @@ const Sidebar = () => {
                 <span className="menu-link-text">Calender</span>
               </Link>
             </li>
-            <li className="menu-item">
+            {/* <li className="menu-item">
+              <Link to="/chatbot" className="menu-link">
+                <span className="menu-link-icon">
+                  <MdOutlinePeople size={20} />
+                </span>
+                <span className="menu-link-text">Chatbot</span>
+              </Link>
+            </li> */}
+              <li className="menu-item">
               <Link to="/chatbot" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlinePeople size={20} />
